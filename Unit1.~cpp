@@ -1268,6 +1268,10 @@ ComboBox1->Items->Add("17");
 ComboBox1->Items->Add("18");
 ComboBox1->Items->Add("19");
 ComboBox1->Items->Add("20");
+ComboBox1->Items->Add("21");
+ComboBox1->Items->Add("22");
+ComboBox1->Items->Add("23");
+ComboBox1->Items->Add("24");
 
 ComboBox2->Items->Add("Von Neumann");
 ComboBox2->Items->Add("Moore");
@@ -1296,6 +1300,7 @@ ComboBox5->Items->Add("7");
 ComboBox5->Items->Add("8");
 ComboBox5->Items->Add("9");
 ComboBox5->Items->Add("10");
+ComboBox5->Items->Add("50");
 
 ComboBox6->Items->Add("2");
 ComboBox6->Items->Add("3");
@@ -2368,6 +2373,16 @@ file1.open("matrix.txt", std::ios::out);
  file1<<tab[i][j]<<std::endl;
  }}
  file1.close();
+
+ Graphics::TBitmap *MyBitmap = new Graphics::TBitmap;
+ Graphics::TCanvas *MyCanvas = new Graphics::TCanvas;
+ HDC dc = GetDC(0);
+ MyCanvas->Handle = dc;
+ MyBitmap->Width = 500;
+ MyBitmap->Height = 500;
+ TRect rt = Rect(5,5, 500, 500);
+ MyBitmap->Canvas->CopyRect(rt, Canvas, rt);
+ MyBitmap->SaveToFile("myfile.bmp");
 }
 
 
@@ -2479,6 +2494,26 @@ for(i=1; i<=100; i++)
  {
  Canvas->Brush->Color = clMoneyGreen;
  }
+ else if (tab[i][j]==21)
+ {
+ Canvas->Brush->Color = clGreen;
+ }
+ else if (tab[i][j]==22)
+ {
+ Canvas->Brush->Color = clBlue;
+ }
+  else if (tab[i][j]==23)
+ {
+ Canvas->Brush->Color = clYellow;
+ }
+  else if (tab[i][j]==24)
+ {
+ Canvas->Brush->Color = clRed;
+ }
+  else if (tab[i][j]==25)
+ {
+ Canvas->Brush->Color = clBlack;
+ }
 
  else if (tab[i][j]==99)    //wtracenie
  {
@@ -2550,4 +2585,6 @@ for(i=1; i<=100; i++)
  sttt = 1;
 }
 //---------------------------------------------------------------------------
+
+
 

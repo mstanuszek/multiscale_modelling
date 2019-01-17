@@ -1300,6 +1300,7 @@ ComboBox5->Items->Add("7");
 ComboBox5->Items->Add("8");
 ComboBox5->Items->Add("9");
 ComboBox5->Items->Add("10");
+ComboBox5->Items->Add("50");
 
 ComboBox6->Items->Add("2");
 ComboBox6->Items->Add("3");
@@ -2372,6 +2373,16 @@ file1.open("matrix.txt", std::ios::out);
  file1<<tab[i][j]<<std::endl;
  }}
  file1.close();
+
+ Graphics::TBitmap *MyBitmap = new Graphics::TBitmap;
+ Graphics::TCanvas *MyCanvas = new Graphics::TCanvas;
+ HDC dc = GetDC(0);
+ MyCanvas->Handle = dc;
+ MyBitmap->Width = 500;
+ MyBitmap->Height = 500;
+ TRect rt = Rect(5,5, 500, 500);
+ MyBitmap->Canvas->CopyRect(rt, Canvas, rt);
+ MyBitmap->SaveToFile("myfile.bmp");
 }
 
 
@@ -2574,5 +2585,6 @@ for(i=1; i<=100; i++)
  sttt = 1;
 }
 //---------------------------------------------------------------------------
+
 
 
